@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>AVAIG</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <script src="aframe-master.min.js"></script>
+  <script src="aframe-event-set-component.min.js"></script>
+
+</head>
+<audio id="flecha" src="voz/flecha.mp3"></audio>
+<audio id="flecha2" src="voz/flecha2.mp3"></audio>
+<audio id="punto" src="voz/punto.mp3"></audio>
+
+<body>
+  <iframe src="voz/silence.mp3" allow="autoplay" id="audio" style="display: none"></iframe>
+  <audio id="player" autoplay>
+    <source src="voz/inicio.mp3" type="audio/mp3">
+  </audio>
+
+  <a-scene auto-enter-vr>
+    <a-assets>
+      <img id="img1" src="moon.jpg" />
+      <img id="1" src="1.jpg"/>
+      <img id="2" src="2.jpg"/>
+      <img id="3" src="3.jpg"/>
+      <img id="4" src="4.jpg"/>
+      <img id="5" src="5.jpg"/>
+      <img id="6" src="6.jpg"/>
+      <img id="7" src="7.jpg"/>
+      <img id="info" src="icon.png"/>
+    </a-assets>
+ 
+    <a-image src="#info" alt="MDN" width="3" height="2" position="0 6 -12.5" rotation="0 0 0"
+    event-set__enter="_event: mouseenter; _target: #TextInfo; visible: true; scale:  2 3 2"
+    event-set__leave="_event: mouseleave; _target: #TextInfo; visible: false; scale: 0 0 0">
+    <a-image src="#1" id="TextInfo" alt="MDN" width="4" height="1.5" visible="false" position="0 0 2"
+      rotation="10 0 2" scale="0 0 0"></a-image>
+  </a-image>
+
+    <a-image src="#info" alt="MDN" width="3" height="2" position="-8 0 -12.5" rotation="0 0 0"
+    event-set__enter="_event: mouseenter; _target: #TextInfo2; visible: true; scale:  2 3 2"
+    event-set__leave="_event: mouseleave; _target: #TextInfo2; visible: false; scale: 0 0 0">
+    <a-image src="#2" id="TextInfo2" alt="MDN" width="4" height="1.5" visible="false" position="0 0 2"
+      rotation="0 30 0" scale="0 0 0"></a-image>
+  </a-image>
+
+    <a-image src="#info" alt="MDN" width="3" height="2" position="8 0 -12.5" rotation="0 0 0" 
+      event-set__enter="_event: mouseenter; _target: #TextInfo3; visible: true; scale:  2 3 2"
+      event-set__leave="_event: mouseleave; _target: #TextInfo3; visible: false; scale: 0 0 0">
+      <a-image src="#3" id="TextInfo3" alt="MDN" width="4" height="1.5" visible="false" position="0 0 2"
+        rotation="0 -30 0" scale="0 0 0"></a-image>
+    </a-image>
+
+    <a-image src="#info" alt="MDN" width="3" height="2" position="0 -4 -12.5" rotation="0 0 0"
+      event-set__enter="_event: mouseenter; _target: #TextInfo4; visible: true; scale:  2 3 2"
+      event-set__leave="_event: mouseleave; _target: #TextInfo4; visible: false; scale: 0 0 0">
+      <a-image src="#4" id="TextInfo4" alt="MDN" width="4" height="1.5" visible="false" position="0 0 2"
+        rotation="-10 0 0" scale="0 0 0"></a-image>
+    </a-image>
+
+    <a-image src="#info" alt="MDN" width="3" height="2" position="-6 13 0" rotation="60 90 0"
+    event-set__enter="_event: mouseenter; _target: #TextInfo5; visible: true; scale: 2 3 2"
+    event-set__leave="_event: mouseleave; _target: #TextInfo5; visible: false; scale: 0 0 0">
+    <a-image src="#5" id="TextInfo5" alt="MDN" width="5" height="2" visible="false" position="0 0 2" rotation="0 5 0"></a-image>
+  </a-image>
+
+  
+  <a-image src="#info" alt="MDN" width="3" height="2" position="-14 5 0" rotation="0 90 0"
+  event-set__enter="_event: mouseenter; _target: #TextInfo6; visible: true; scale: 2 3 2"
+  event-set__leave="_event: mouseleave; _target: #TextInfo6; visible: false; scale: 0 0 0">
+  <a-image src="#6" id="TextInfo6" alt="MDN" width="5" height="2" visible="false" position="0 0 2" rotation="0 5 0"></a-image>
+</a-image>
+
+  <a-image src="#info" alt="MDN" width="3" height="2" position="10 5 10" rotation="0 30 0"
+  event-set__enter="_event: mouseenter; _target: #TextInfo7; visible: true; scale: 2 3 2"
+  event-set__leave="_event: mouseleave; _target: #TextInfo7; visible: false; scale: 0 0 0">
+  <a-image src="#7" id="TextInfo7" alt="MDN" width="5" height="2" visible="false" position="0 0 -2" rotation="15 180 -1"></a-image>
+</a-image>
+
+    <a-sky src="#img1" id="sky" rotation="0 0 0" onclick="sonidoof()"></a-sky>
+
+    <a-entity>
+      <a-camera>
+        <a-cursor fuse="true"></a-cursor>
+      </a-camera>
+    </a-entity>
+
+  </a-scene>
+
+  <script>
+    audof = "";
+    function imageClick(url) {
+      window.location = url;
+    }
+
+    function sonido(aud) {
+      var sonido_info = document.getElementById(aud);
+      sonido_info.play();
+      audof = aud;
+    }
+
+    function sonidoof() {
+      var sonido_info = document.getElementById(audof);
+      sonido_info.pause();
+    }
+  </script>
+
+</body>
+</html>
